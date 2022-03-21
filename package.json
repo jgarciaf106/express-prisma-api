@@ -2,12 +2,6 @@
   "name": "rest-express",
   "version": "1.0.0",
   "license": "MIT",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf ./dist && tsc --project ./ && npx prisma db push",    
-    "start": "npm run build && node dist/app.js",
-    "postinstall": "tsc"
-  },
   "dependencies": {
     "@prisma/client": "3.11.0",
     "@types/ejs": "^3.0.6",
@@ -31,12 +25,23 @@
     "express-formidable": "^1.2.0",
     "express-list-endpoints": "^6.0.0",
     "express-session": "^1.17.1",
+    "nodemon": "^2.0.7",
     "prisma": "3.11.0",
     "ts-node": "10.7.0",
     "typescript": "4.6.2"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",       
+    "start": "npm run build && node dist/app.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/app.js",
+    "watch-ts": "tsc -w ",
+    "build": "rm -rf ./dist && tsc --project ./ && npx prisma db push"
+    
+  },
   "prisma": {
     "schema": "src/prisma/schema.prisma",
     "seed": "ts-node docs/seeds.ts"
-  }
+  },
+  "author": "Andres Garcia"
 }
