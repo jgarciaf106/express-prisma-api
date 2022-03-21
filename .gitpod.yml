@@ -16,7 +16,4 @@ tasks:
       psql -U gitpod -c 'CREATE DATABASE example;' &&
       psql -U gitpod -c 'CREATE EXTENSION unaccent;' -d example &&
       node ./docs/welcome.js 
-  - command: >
-      npm install
-    openMode: split-right
       
