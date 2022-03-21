@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/app.ts",
+    "start": "node dist/app.js",
+    "build": "rm -rf ./dist && tsc --project ./",
     "studio": "npx prisma studio",
-    "postinstall": "npx prisma db push && ts-node src/app.ts"
+    "postinstall": "rm -rf ./dist && tsc --project ./ && npx prisma db push && node dist/app.js"
   },
   "dependencies": {
     "@prisma/client": "3.11.0",
