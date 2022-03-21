@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/app.ts",
     "studio": "npx prisma studio",
-    "postinstall": "npx prisma migrate dev && ts-node src/app.ts"
+    "postinstall": "npx prisma migrate dev --name init && ts-node src/app.ts"
   },
   "dependencies": {
     "@prisma/client": "3.11.0",
