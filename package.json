@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/app.ts"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "config": "npx prisma migrate dev --name init ",
+    "start": "ts-node src/app.ts",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@prisma/client": "3.11.0",
