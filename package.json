@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./dist && tsc --project ./ && npx prisma db push",    
-    "start": "npm run build && node dist/app.js"
+    "start": "npm run build && node dist/app.js",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@prisma/client": "3.11.0",
