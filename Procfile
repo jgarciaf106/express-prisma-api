@@ -1,1 +1,1 @@
-web: 'npm run config && npm run start && npm run studio'
+web: npm run config 
