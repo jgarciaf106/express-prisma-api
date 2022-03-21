@@ -147,5 +147,5 @@ app.get('/feed', async (req, res) => {
 
 const server = app.listen(3000, () =>
   console.log(`
-🚀 API Server running at: https://3000-${process.env.GITPOD_WORKSPACE_URL}`),
+🚀 API Server running at: ${process.env.GITPOD_WORKSPACE_URL}`),
 )
