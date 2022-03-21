@@ -17,8 +17,5 @@ tasks:
       psql -U gitpod -c 'CREATE EXTENSION unaccent;' -d example &&
       ts-node ./docs/welcome.js 
   - command: >
-      npm install &&
-      npx prisma migrate dev --name init &&
-      npm run dev &&
-      npx prisma studio
+      npm install
       
