@@ -1,1 +1,1 @@
-web: npm run config && npm run start 
+web: npm postinstall
