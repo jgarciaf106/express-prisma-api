@@ -32,7 +32,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",       
-    "start": "npm run build && node dist/app.js",
+    "start": "node dist/app.js",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/app.js",
     "watch-ts": "tsc -w ",
