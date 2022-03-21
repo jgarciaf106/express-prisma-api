@@ -4,7 +4,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
-    //"useUnknownInCatchVariables": false,
+    "useUnknownInCatchVariables": false,
     "lib": ["esnext"],
     "esModuleInterop": true
   }
