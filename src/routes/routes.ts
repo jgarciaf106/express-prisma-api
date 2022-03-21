@@ -4,6 +4,10 @@ import { Prisma, PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
+export const hello = async (req: Request, res: Response): Promise<Response> => {
+  return res.json({ message: "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request" })
+}
+
 export const createUser = async (req: Request, res: Response): Promise<Response> => {
   const { name, email, posts } = req.body
 

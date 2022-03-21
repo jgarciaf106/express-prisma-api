@@ -3,6 +3,7 @@ import listEndpoints from 'express-list-endpoints' //just a function that retrie
 import ejs from "ejs" //template engine
 
 import { Request, Response, NextFunction } from 'express';
+import { ObjectLiteral } from 'typeorm';
 
 // We need to know what will be the API host
 // in a local computer is always "localhost" 
@@ -56,11 +57,13 @@ export const renderIndex = async (_app: any, url: string) => {
 export const safe = (fn:any) => async (req: Request, res: Response, next: NextFunction) => {
 	try{
 		const fnReturn = await fn(req, res)
-	}catch(err){
-		res.status(err.status || 500);
-		res.json({ message: err.message || err.msg || err });
-		
-		next(err);
+	}catch(err: unknown){
+		if(err instanceof Error){
+			res.status(err.status || 500);
+			res.json({ message: err.message || err.msg || err });
+					
+			next(err);
+		}
 	}
 }
 
