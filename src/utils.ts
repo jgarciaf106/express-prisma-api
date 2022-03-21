@@ -16,7 +16,7 @@ export const url = (port: string) => {
 		const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
 		publicUrl = `https://${port}-${host}`;
 	}else{
-		publicUrl = document.location.href;
+		publicUrl = "";
 	}
 	return publicUrl
 }
