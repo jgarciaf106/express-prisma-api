@@ -11,7 +11,6 @@ var PORT = process.env.PORT || '3001';
 const PUBLIC_URL = url(PORT)
 const prisma = new PrismaClient()
 const app = express();
-
 /* 
 Middlewares: every time you see "app.use" we are including a new
 middleware to the express server, you can read more about middle wares here:
@@ -21,7 +20,7 @@ app.use(cors()) //disable CORS validations
 app.use(express.json()) // the API will be JSON based for serialization
 
 // render home website with usefull information for boilerplate developers (students)
-app.get('/', (req, res) => renderIndex(app, PUBLIC_URL).then(html => res.status(404).send(html)))
+app.get('/', (req, res) => renderIndex(app, PUBLIC_URL, req).then(html => res.status(404).send(html)))
 
 // Import public routes from ./src/public_routes.ts file
 // this line has to be ABOVE the JWT middleware to avoid

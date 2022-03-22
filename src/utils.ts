@@ -2,8 +2,10 @@ import * as path from "path"; // node.js internal module usefull to get file pat
 import listEndpoints from "express-list-endpoints"; //just a function that retrieves all the API routes
 import ejs from "ejs"; //template engine
 
+
 import { Request, Response, NextFunction } from "express";
 import { ObjectLiteral } from "typeorm";
+
 
 // We need to know what will be the API host
 // in a local computer is always "localhost"
@@ -15,16 +17,12 @@ export const url = (port: string) => {
   if (process.env.GITPOD_WORKSPACE_URL) {
     const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split("://");
     publicUrl = `https://${port}-${host}`;
-  } else {
-    if (typeof window !== 'undefined') {
-      publicUrl = window.location.href;
-    }  
   }
   return publicUrl;
 };
 
 // this function creates the HTML/CSS for the API Index home page
-export const renderIndex = async (_app: any, url: string) => {
+export const renderIndex = async (_app: any, url: string, req: any) => {
   // loop all the endpoints that the user has generated
   const routes = listEndpoints(_app)
     .map((item: any) => {
@@ -40,7 +38,7 @@ export const renderIndex = async (_app: any, url: string) => {
 
   // data to be sent to the home page
   let data = {
-    host: url,
+    host: `${req.protocol}://${req.hostname}${req.originalUrl}`,
     routes,
     logo: "https://web-static.wrike.com/cdn-cgi/image/width=1034,format=auto,q=80/blog/content/uploads/2019/05/API-Wrike-.jpg",
     starter: "https://github.com/jgarciaf106",
